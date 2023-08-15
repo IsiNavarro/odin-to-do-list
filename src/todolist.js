@@ -48,6 +48,7 @@ class Task {
         this.onGoing = true;
         
         inbox.push(this);
+        console.log(this);
     }
 
     toggleOnGoing() {

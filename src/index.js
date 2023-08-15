@@ -83,33 +83,16 @@ inboxBtn.addEventListener('click', ()=> {
 });
 
 function getPriorityBorder(priority) {
-    if (priority === 1) {
+    if (priority == 1) {
         return '2px solid var(--Prio-1)';
-      } else if (priority === 2) {
+      } else if (priority == 2) {
         return '2px solid var(--Prio-2)';
-      } else if (priority === 3) {
+      } else if (priority == 3) {
         return '2px solid var(--Prio-3)';
-      } else if (priority === 0) {
+      } else if (priority == 0) {
         return '2px solid var(--Prio-0)';
       } else return
-}
-
-
-
-
-
-
-
-
-const Task1 = new Task('Create ToDoList', '2023-08-10', 1, 'inbox');
-const Task2 = new Task('Exam', '2023-08-17', 0, 'University');
-const Tas32 = new Task('Push, pull, legs!', '2023-08-15', 2, 'Gym');
-const Task4 = new Task('Etwas', '2023-08-16', 3, 'University');
-
-const Project1 = new Project('University');
-const Project2 = new Project('Gym');
-
-const dueToday = ListManager.filterDueIn7Days(projectList[0].list);
+};
 
 setModals();
 displayList(inbox);
