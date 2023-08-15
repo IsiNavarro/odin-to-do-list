@@ -1,22 +1,43 @@
-const mainList = [];
+import { addDays, sub, isWithinInterval, parseISO, isToday } from 'date-fns';
+const inbox = [];
 const projectList = [];
 
 const ListManager =  new class ListManager {
-    removeTaskFromMainList(Task) {
-        const index = mainList.indexOf(Task);
+    removeTaskFrominbox(task) {
+        const index = inbox.indexOf(task);
     
         if (index !== -1) {
-            mainList.splice(index, 1);
+            inbox.splice(index, 1);
         }
     }
-    removeTaskFromProjectList(Task) {
-        const index = projectList.indexOf(Task);
+    removeProjectFromProjectList(project) {
+        const index = projectList.indexOf(project);
     
         if (index !== -1) {
             projectList.splice(index, 1);
         }
     }
 
+    // Pass 'inbox' or 'projectList[i].list'
+    filterDueToday(list) {
+        return list.filter(task => {
+            const taskDate = parseISO(task.date);
+            return isToday(taskDate)
+        })
+    }
+
+    // Pass 'inbox' or 'projectList[i].list'
+    filterDueIn7Days(list) {
+        const today = new Date();
+        const yesterday = sub(today, {days: 1});
+        const sevenDaysFromNow = addDays(today, 7);
+
+        return list.filter(task => {
+            const taskDate = parseISO(task.date);
+            console.log("taskDate:", taskDate);
+            return isWithinInterval(taskDate, {start: yesterday, end: sevenDaysFromNow})
+        });
+    }
 }
 
 class Task {
@@ -27,22 +48,9 @@ class Task {
         this.project = _project;
         this.onGoing = true;
         
-        mainList.push(this);
+        inbox.push(this);
     }
 
-    set Name(newName) {
-        this.name = newName;
-    }
-    set Date(newDate) {
-        this.date = newDate;
-    }
-    set Prio(newPrio) {
-        this.prio = newPrio;
-    }
-    set Project(newProject) {
-        this.project = newProject;
-    }
-    
     toggleOnGoing() {
         this.onGoing = !this.onGoing;
     }
@@ -56,12 +64,12 @@ class Project {
     }
 
     get list() {
-        return mainList.filter(task => task.project === this.name)
+        return inbox.filter(task => task.project === this.name)
     }
 }
 
 export {
-    mainList,
+    inbox,
     projectList,
     ListManager,
     Task,
