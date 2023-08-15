@@ -1,5 +1,157 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+:root {
+    --Dark-100: #121212;
+    --Dark-200: #282828;
+    --Dark-300: #3f3f3f;
+    --Dark-400: #575757;
+    --Dark-500: #717171;
+    --Dark-600: #8b8b8b;
 
-.hello {
-    font-family: 'Roboto', sans-serif;
+    --Orange-300: #ffaf50;
+    --Yellow-300: #ffce58;
+
+    --Prio-3: #db5153;
+    --Prio-2: #277da1;
+    --Prio-1: #90be6d;
+    --Prio-0: #ffffff;
+
+    --Transition-time: 100ms;
+}
+* {
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Roboto', 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    color: #ffffff;
+
+    background-color: var(--Dark-100);
+}
+body {
+    background-color: var(--Dark-200);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+.container {
+    background-color: var(--Dark-100);
+    height: 85vh;
+    width: 85vw;
+    border-radius: 20px;
+    padding: 20px;
+
+    display: grid;
+    grid-template-rows: 2.5fr  1.5fr  15fr;
+}
+header {
+    display: grid;
+    place-items: center;
+    border-bottom: 1px solid var(--Dark-200);
+}
+h1 {
+    text-align: center;
+    font-size: 4em;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    border-bottom: 1px solid var(--Dark-200);
+}
+
+.due {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--Yellow-300);
+}
+
+main {
+    background-color: var(--Dark-100);
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+#sidebar {
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    border-right: 3px solid var(--Dark-200);
+
+    display: grid;
+    grid-template-rows: 1.2fr 4fr 1.8fr;
+}
+
+#inboxBtn {
+    font-size: 2em;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    margin: 20px;
+    background-color: var(--Dark-200);
+
+    transition: var(--Transition-time);
+}
+
+#Projects {
+    display: flex;
+    flex-direction: column;
+}
+h3 {
+    font-size: 2.5em;
+}
+#projectList {
+    display: flex;
+    flex-direction: column;
+    align-items: first baseline;
+}
+.project {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+
+    transition: var(--Transition-time);
+}
+.project:hover {
+    cursor: pointer;
+
+    transition: var(--Transition-time);
+}
+
+#addBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    border-top: 1px solid var(--Dark-300);
+    margin: 5px;
+}
+.addBtn {
+    font-size: 1.3em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 17px;
+    background-color: var(--Orange-300);
+}
+
+#tasks {
+    padding: 20px;
+}
+
+.task {
+    padding: 10px;
+    border-bottom: solid 2px var(--Prio-3);
+    margin: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+button {
+    cursor: pointer;
+
+    transition: var(--Transition-time);
 }
