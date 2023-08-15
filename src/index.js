@@ -13,7 +13,11 @@ let currentList = inbox;
 
 
 today.addEventListener('click', () => {
-    displayList(ListManager.filterDueToday(currentList))
+    displayList(ListManager.filterDueToday(currentList));
+});
+
+sevenDays.addEventListener('click', () => {
+    displayList(ListManager.filterDueIn7Days(currentList));
 })
 export function displayList(list) {
     taskDisplayer.innerHTML = '';
@@ -52,8 +56,6 @@ export function displayList(list) {
 
         taskDisplayer.appendChild(taskDiv);        
     });
-
-    currentList = list;
 };
 
 export function displayProjects() {
@@ -67,6 +69,8 @@ export function displayProjects() {
         // Add eventlistener for it to display its list
         projectDiv.addEventListener('click', () => {
             displayList(project.list);
+
+            currentList = project.list;
         })
         projectDisplayer.appendChild(projectDiv)
     })
@@ -75,6 +79,7 @@ export function displayProjects() {
 
 inboxBtn.addEventListener('click', ()=> {
     displayList(inbox);
+    currentList = inbox;
 });
 
 function getPriorityBorder(priority) {
