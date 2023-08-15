@@ -236,3 +236,6 @@ input {
     font-weight: bold;
     font-size: 1.12rem;
 }
+option {
+    color: white;
+}

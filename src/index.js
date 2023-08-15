@@ -6,6 +6,9 @@ import setModals from './popUps.js'
 const inboxBtn = document.getElementById('inboxBtn');
 const taskDisplayer = document.getElementById('tasks');
 const projectDisplayer = document.getElementById('projectList');
+const today = document.getElementById('today');
+const sevenDays = document.getElementById('sevenDays');
+
 
 export function displayList(list) {
     taskDisplayer.innerHTML = '';
@@ -78,6 +81,8 @@ function getPriorityBorder(priority) {
         return '2px solid var(--Prio-0)';
       } else return
 }
+
+
 
 
 
