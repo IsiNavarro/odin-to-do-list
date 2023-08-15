@@ -34,7 +34,6 @@ const ListManager =  new class ListManager {
 
         return list.filter(task => {
             const taskDate = parseISO(task.date);
-            console.log("taskDate:", taskDate);
             return isWithinInterval(taskDate, {start: yesterday, end: sevenDaysFromNow})
         });
     }

@@ -56,7 +56,9 @@ h1 {
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-right: 20px;
 
     border-bottom: 1px solid var(--Dark-200);
 }
@@ -64,7 +66,9 @@ nav {
 .due {
     font-size: 1.2em;
     font-weight: bold;
+    padding: 10px;
     color: var(--Yellow-300);
+    border: 1px solid var(--Yellow-300);
 }
 
 main {
@@ -135,7 +139,8 @@ h3 {
     border: none;
     border-radius: 5px;
     padding: 17px;
-    background-color: var(--Orange-300);
+    border: 2px solid var(--Orange-300);
+    color: var(--Yellow-300);
 }
 
 #tasks {
@@ -144,13 +149,23 @@ h3 {
 
 .task {
     padding: 10px;
-    border-bottom: solid 2px var(--Prio-3);
-    margin: 10px;
+    margin: 3px;
     font-weight: bold;
     font-size: 1.3em;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.taskDelete {
+    font-size: 1.3;
+    padding: 4px;
+    border-radius: 2px;
+    font-weight: bold;
+    background-color: var(--Prio-3);
+    border: none;
 }
 
-button {
+button:hover {
     cursor: pointer;
 
     transition: var(--Transition-time);
