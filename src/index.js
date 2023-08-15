@@ -1,4 +1,4 @@
-import './assets/style.css';
+import css from './assets/style.css';
 import { inbox, projectList, ListManager, Task, Project } from'./todolist.js';
 import { format, parseISO } from 'date-fns';
 import setModals from './popUps.js'
