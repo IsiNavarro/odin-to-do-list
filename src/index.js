@@ -9,7 +9,12 @@ const projectDisplayer = document.getElementById('projectList');
 const today = document.getElementById('today');
 const sevenDays = document.getElementById('sevenDays');
 
+let currentList = inbox;
 
+
+today.addEventListener('click', () => {
+    displayList(ListManager.filterDueToday(currentList))
+})
 export function displayList(list) {
     taskDisplayer.innerHTML = '';
 
@@ -47,6 +52,8 @@ export function displayList(list) {
 
         taskDisplayer.appendChild(taskDiv);        
     });
+
+    currentList = list;
 };
 
 export function displayProjects() {
