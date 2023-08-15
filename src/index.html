@@ -7,6 +7,31 @@
     <title>To Do List</title>
 </head>
 <body>
+    <div class="modal" id="modal1">
+        <div class="modal-body">
+            <form id="inputForm1">
+                <label for="projectName">Enter Project Name:</label>
+                <input type="text" id="projectName" name="projectName" required>
+                <button class="submit" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="modal2">
+        <div class="modal-body">
+            <form id="inputForm2">
+                <label for="taskName">Enter Task Name:</label>
+                <input type="text" id="taskName" name="taskName" required>
+                <label for="taskDate">Date:</label>
+                <input type="date" id="taskDate" name="taskDate" required>
+                <label for="taskPrio">Priority:</label>
+                <input type="number" id="taskPrio" name="taskPrio"  min="0" max="3"required>
+                <label for="taskProject">Project:</label>
+                <input type="text" id="taskProject" name="taskProject" required>
+                <button class="submit" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div id="overlay"></div>
     <div class="container">
         <header>
             <h1>_todolist</h1>
@@ -17,15 +42,15 @@
         </nav>
         <main>
             <div id="sidebar">
-                <button id="inboxBtn">- Inbox</button>
+                <button id="inboxBtn">- All Tasks</button>
                 <div id="Projects">
                     <h3>Projects</h3>
                     <div id="projectList">
                     </div>
                 </div>
                 <div id="addBtns">
-                    <button class="addBtn"id="addProjectBtn">+ New Project</button>
-                    <button class="addBtn" id="addTaskBtn">+ New Task</button>
+                    <button data-modal-target="#modal1" class="addBtn"id="addProjectBtn">+ New Project</button>
+                    <button data-modal-target="#modal2" class="addBtn" id="addTaskBtn">+ New Task</button>
                 </div>
             </div>
             <div id="tasks">

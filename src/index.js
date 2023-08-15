@@ -1,12 +1,13 @@
 import './assets/style.css';
 import { inbox, projectList, ListManager, Task, Project } from'./todolist.js';
 import { format, parseISO } from 'date-fns';
+import setModals from './popUps.js'
 
 const inboxBtn = document.getElementById('inboxBtn');
 const taskDisplayer = document.getElementById('tasks');
 const projectDisplayer = document.getElementById('projectList');
 
-function displayList(list) {
+export function displayList(list) {
     taskDisplayer.innerHTML = '';
 
     list.forEach(task => {
@@ -45,7 +46,9 @@ function displayList(list) {
     });
 };
 
-function displayProjects() {
+export function displayProjects() {
+    projectDisplayer.innerHTML = '';
+
     projectList.forEach(project => {
         const projectDiv = document.createElement('div');
         projectDiv.classList.add('project');
@@ -91,5 +94,6 @@ const Project2 = new Project('Gym');
 
 const dueToday = ListManager.filterDueIn7Days(projectList[0].list);
 
+setModals();
 displayList(inbox);
 displayProjects();

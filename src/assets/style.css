@@ -69,6 +69,7 @@ nav {
     padding: 10px;
     color: var(--Yellow-300);
     border: 1px solid var(--Yellow-300);
+    border-radius: 2px;
 }
 
 main {
@@ -169,4 +170,69 @@ button:hover {
     cursor: pointer;
 
     transition: var(--Transition-time);
+}
+
+
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    padding: 10px;
+    z-index: 10;
+    background-color: var(--Dark-200);
+    transition: var(--Transition-time) ease-in-out;
+    border-radius: 5px;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+.modal-body {
+    padding: 10px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+form {
+    display: flex;
+    font-weight: bold;
+    font-size: 1.25rem;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    gap: 5px;
+}
+input {
+    padding: 5px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-size: 0.9rem;
+}
+.submit {
+    border: 1px solid #ffffff;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--Dark-600);
+    border-radius: 2px;
+    outline: none;
+    font-weight: bold;
+    font-size: 1.12rem;
 }
